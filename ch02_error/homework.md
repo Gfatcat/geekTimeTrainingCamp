@@ -15,16 +15,17 @@
 
 ### 代码
 ```go
-func GetEmployee(id int) (*Employee, error) {
-	querySQL := fmt.Sprintf("select name from employees where id = %d", id)
-	err := db.QueryRow(querySQL)
-	if err != nil {
-		if errors.Is(err, sql.ErrNoRows) {
-			return nil, nil
-		} else {
-			return nil, errors.Wrap(queryError{err, querySQL}, "fail to query employee")
-		}
-	}
-	// do stuff
+func GetEmployee(id int) (*string, error) {
+    querySQL := fmt.Sprintf("select name from employees where id = %d", id)
+    var name string
+    err := db.QueryRow(querySQL).Scan(&name)
+    if err != nil {
+        if errors.Is(err, sql.ErrNoRows) {
+            return nil, nil
+        } else {
+            return nil, errors.Wrap(&QueryError{err, querySQL}, "fail to Query employee")
+        }
+    }
+    return &name, nil
 }
 ```
