@@ -74,7 +74,7 @@ func GetEmployee(id int) (*string, error) {
 	return &name, nil
 }
 
-func Run(id int) {
+func RunHomework(id int) {
 	err := InitDbConn()
 	if err != nil {
 		fmt.Printf("original error %T %v \n", errors.Cause(err), errors.Cause(err))
