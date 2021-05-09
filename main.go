@@ -1,7 +1,9 @@
 package main
 
-import "geekTimeTrainingCamp/ch02_error"
+import (
+	ch03 "geekTimeTrainingCamp/ch03_concurrency"
+)
 
 func main() {
-	ch02_error.Run(2)
+	ch03.Run()
 }
