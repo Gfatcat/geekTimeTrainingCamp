@@ -1,9 +1,9 @@
 package main
 
 import (
-	ch03 "geekTimeTrainingCamp/ch03_concurrency"
+	ch02 "geekTimeTrainingCamp/ch02_error"
 )
 
 func main() {
-	ch03.Run()
+	ch02.RunHomework(45)
 }
